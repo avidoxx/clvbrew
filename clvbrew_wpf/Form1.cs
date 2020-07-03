@@ -18,6 +18,7 @@ namespace clvbrew_wpf
 
         private void obfuscate_Click(object sender, EventArgs e)
         {
+            // suck my ass
             var source = fastColoredTextBox1.Text;
             var httpWebRequest = (HttpWebRequest)WebRequest.Create("https://ibidk.herokuapp.com/obfuscate-key");
             httpWebRequest.ContentType = "application/json";
