@@ -64,7 +64,6 @@ namespace clvbrew
             obfCtrlFlow.Checked = Settings.Default.obfCtrlFlow;
             compBytecode.Checked = Settings.Default.compBytecode;
             prsvLnInfo.Checked = Settings.Default.prsvLnInfo;
-            Console.WriteLine($"API Key: \"{Settings.Default.API_Key}\"");
         }
     }
 }
