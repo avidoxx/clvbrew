@@ -3,8 +3,9 @@ using System.IO;
 using System.Net;
 using System.Windows.Forms;
 using System.Web.Script.Serialization;
+using clvbrew.Properties;
 
-namespace clvbrew_wpf
+namespace clvbrew
 {
     public partial class clvbrew : Form
     {
@@ -30,7 +31,7 @@ namespace clvbrew_wpf
                     encImportantStrings = encImpStrings.Checked,
                     noControlFlow = !obfCtrlFlow.Checked,
                     debugInfo = prsvLnInfo.Checked,
-                    noCompressBS = compBytecode.Checked,
+                    noCompressBS = !compBytecode.Checked,
                     script = source
                 });
                 streamWriter.Write(json);
@@ -42,6 +43,28 @@ namespace clvbrew_wpf
                 result = streamReader.ReadToEnd();
             }
             fastColoredTextBox1.Text = result;
+        }
+
+        private void clvbrew_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Settings.Default.API_Key = apikey.Text;
+            Settings.Default.encStrings = encStrings.Checked;
+            Settings.Default.encImpStrings = encImpStrings.Checked;
+            Settings.Default.obfCtrlFlow = obfCtrlFlow.Checked;
+            Settings.Default.compBytecode = compBytecode.Checked;
+            Settings.Default.prsvLnInfo = prsvLnInfo.Checked;
+            Settings.Default.Save();
+        }
+
+        private void clvbrew_Load(object sender, EventArgs e)
+        {
+            apikey.Text = Settings.Default.API_Key;
+            encStrings.Checked = Settings.Default.encStrings;
+            encImpStrings.Checked = Settings.Default.encImpStrings;
+            obfCtrlFlow.Checked = Settings.Default.obfCtrlFlow;
+            compBytecode.Checked = Settings.Default.compBytecode;
+            prsvLnInfo.Checked = Settings.Default.prsvLnInfo;
+            Console.WriteLine($"API Key: \"{Settings.Default.API_Key}\"");
         }
     }
 }

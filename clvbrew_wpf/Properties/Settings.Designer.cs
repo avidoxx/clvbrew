@@ -22,5 +22,76 @@ namespace clvbrew.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public string API_Key {
+            get {
+                return ((string)(this["API_Key"]));
+            }
+            set {
+                this["API_Key"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool encStrings {
+            get {
+                return ((bool)(this["encStrings"]));
+            }
+            set {
+                this["encStrings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool encImpStrings {
+            get {
+                return ((bool)(this["encImpStrings"]));
+            }
+            set {
+                this["encImpStrings"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool obfCtrlFlow {
+            get {
+                return ((bool)(this["obfCtrlFlow"]));
+            }
+            set {
+                this["obfCtrlFlow"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool compBytecode {
+            get {
+                return ((bool)(this["compBytecode"]));
+            }
+            set {
+                this["compBytecode"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool prsvLnInfo {
+            get {
+                return ((bool)(this["prsvLnInfo"]));
+            }
+            set {
+                this["prsvLnInfo"] = value;
+            }
+        }
     }
 }

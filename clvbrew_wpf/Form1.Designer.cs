@@ -1,4 +1,4 @@
-﻿namespace clvbrew_wpf
+﻿namespace clvbrew
 {
     partial class clvbrew
     {
@@ -137,12 +137,12 @@
         '\''};
             this.fastColoredTextBox1.AutoIndentChars = false;
             this.fastColoredTextBox1.AutoIndentCharsPatterns = "\r\n^\\s*[\\w\\.]+(\\s\\w+)?\\s*(?<range>=)\\s*(?<range>.+)\r\n";
-            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(139, 14);
+            this.fastColoredTextBox1.AutoScrollMinSize = new System.Drawing.Size(187, 14);
             this.fastColoredTextBox1.BackBrush = null;
             this.fastColoredTextBox1.BracketsHighlightStrategy = FastColoredTextBoxNS.BracketsHighlightStrategy.Strategy2;
             this.fastColoredTextBox1.CharHeight = 14;
             this.fastColoredTextBox1.CharWidth = 8;
-            this.fastColoredTextBox1.CommentPrefix = "";
+            this.fastColoredTextBox1.CommentPrefix = "--";
             this.fastColoredTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.fastColoredTextBox1.DisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
             this.fastColoredTextBox1.IsReplaceMode = false;
@@ -158,8 +158,7 @@
             this.fastColoredTextBox1.ServiceColors = ((FastColoredTextBoxNS.ServiceColors)(resources.GetObject("fastColoredTextBox1.ServiceColors")));
             this.fastColoredTextBox1.Size = new System.Drawing.Size(538, 249);
             this.fastColoredTextBox1.TabIndex = 8;
-            this.fastColoredTextBox1.Text = "-- Test Script";
-            this.fastColoredTextBox1.TextAreaBorder = FastColoredTextBoxNS.TextAreaBorderType.Shadow;
+            this.fastColoredTextBox1.Text = "print(\"Hello World\")";
             this.fastColoredTextBox1.Zoom = 100;
             // 
             // clvbrew
@@ -181,6 +180,8 @@
             this.MaximizeBox = false;
             this.Name = "clvbrew";
             this.Text = "clvbrew";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.clvbrew_FormClosing);
+            this.Load += new System.EventHandler(this.clvbrew_Load);
             ((System.ComponentModel.ISupportInitialize)(this.fastColoredTextBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
