@@ -97,5 +97,31 @@ namespace clvbrew
             prsvLnInfo.Checked = Settings.Default.prsvLnInfo;
             fastColoredTextBox1.Text = Base64Decode(Settings.Default.script);
         }
+
+        private void fastColoredTextBox1_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.All;
+            else e.Effect = DragDropEffects.None;
+        }
+
+        private void fastColoredTextBox1_DragDrop(object sender, DragEventArgs e)
+        {
+            string data = "";
+            string[] fileNames = e.Data.GetData(DataFormats.FileDrop) as string[];
+            if (fileNames != null)
+            {
+                foreach(string name in fileNames)
+                {
+                    try
+                    {
+                        data = File.ReadAllText(name);
+                    } catch(Exception ex)
+                    {
+                        MessageBox.Show("There was an error while reading a file that was dropped on to the editor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            fastColoredTextBox1.Text = data;
+        }
     }
 }

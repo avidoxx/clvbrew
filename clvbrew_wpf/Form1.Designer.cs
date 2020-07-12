@@ -160,6 +160,8 @@
             this.fastColoredTextBox1.TabIndex = 8;
             this.fastColoredTextBox1.Text = "print(\"Hello World\")";
             this.fastColoredTextBox1.Zoom = 100;
+            this.fastColoredTextBox1.DragDrop += new System.Windows.Forms.DragEventHandler(this.fastColoredTextBox1_DragDrop);
+            this.fastColoredTextBox1.DragEnter += new System.Windows.Forms.DragEventHandler(this.fastColoredTextBox1_DragEnter);
             // 
             // clvbrew
             // 
