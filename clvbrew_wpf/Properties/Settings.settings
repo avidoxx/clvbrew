@@ -20,5 +20,8 @@
     <Setting Name="prsvLnInfo" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="script" Type="System.String" Scope="User">
+      <Value Profile="(Default)">cHJpbnQoIkhlbGxvIFdvcmxkIik=</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

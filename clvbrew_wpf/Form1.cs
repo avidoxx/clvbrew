@@ -45,25 +45,57 @@ namespace clvbrew
             fastColoredTextBox1.Text = result;
         }
 
+        private string Base64Encode(string plainText)
+        {
+            string result = "";
+            try
+            {
+                byte[] plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+                result = System.Convert.ToBase64String(plainTextBytes);
+            } catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result = "";
+            }
+            return result;
+        }
+
+        private string Base64Decode(string base64EncodedData)
+        {
+            string result = "";
+            try
+            {
+                byte[] base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+                result = System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+            } catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                result = "";
+            }
+            return result;
+        }
+
         private void clvbrew_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Settings.Default.API_Key = apikey.Text;
+            Settings.Default.API_Key = Base64Encode(apikey.Text);
             Settings.Default.encStrings = encStrings.Checked;
             Settings.Default.encImpStrings = encImpStrings.Checked;
             Settings.Default.obfCtrlFlow = obfCtrlFlow.Checked;
             Settings.Default.compBytecode = compBytecode.Checked;
             Settings.Default.prsvLnInfo = prsvLnInfo.Checked;
+            Settings.Default.script = Base64Encode(fastColoredTextBox1.Text);
             Settings.Default.Save();
         }
 
         private void clvbrew_Load(object sender, EventArgs e)
         {
-            apikey.Text = Settings.Default.API_Key;
+            apikey.Text = Base64Decode(Settings.Default.API_Key);
             encStrings.Checked = Settings.Default.encStrings;
             encImpStrings.Checked = Settings.Default.encImpStrings;
             obfCtrlFlow.Checked = Settings.Default.obfCtrlFlow;
             compBytecode.Checked = Settings.Default.compBytecode;
             prsvLnInfo.Checked = Settings.Default.prsvLnInfo;
+            fastColoredTextBox1.Text = Base64Decode(Settings.Default.script);
         }
     }
 }

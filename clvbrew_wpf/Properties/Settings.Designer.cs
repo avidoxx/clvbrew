@@ -93,5 +93,17 @@ namespace clvbrew.Properties {
                 this["prsvLnInfo"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("cHJpbnQoIkhlbGxvIFdvcmxkIik=")]
+        public string script {
+            get {
+                return ((string)(this["script"]));
+            }
+            set {
+                this["script"] = value;
+            }
+        }
     }
 }
